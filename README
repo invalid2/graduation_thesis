@@ -1,0 +1,17 @@
+# Graduation monography example implementations
+
+This repository was created to store the implementations of the algorithms introduced in my graduation monography and they are:
+
+- **RecursiveDom:** It uses of recursion to essentially iterate through all valid double dominatin sets and, then, returns the smallest. The result is that the algorithm is exact and is asymptotically at least O(2^n).
+- **HalfColum:** Iterates through all vertices adding those in every other column to the double dominating set and those in every other row of the last column if the width of the complete grid graph is even. Result is that it outputs a minimal result in polymial time.
+- **RepeatMinTile:** Also iterates through all vertices, but it repeats a tile pattern that is locally the minimum when considering neighbors and, thus, globally the minimum. Consequently, it outputs an optimal solution, but only for complete grid graphs of sizes muliple of 5 and larger or equal than 10.
+
+The output of the algorithms here will be Python sets that then can be piped to other applications, like Pyplot for rendering.
+
+# Requirements
+
+Install Python 3, then pip, then use pip to install libraries listed in the requirements.txt, then run with:
+
+```Python
+python3 <algorithm file.py>
+```
