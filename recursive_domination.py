@@ -1,9 +1,6 @@
 import networkx as nx
 
 def RecursiveDomination(G: nx.Graph, ddset: set, current_vertex_index: int) -> set:
-    if current_vertex_index >= len(G.nodes()):
-        return ddset
-
     vertex = list(G)[current_vertex_index]
 
     tempset = ddset.difference({vertex})
@@ -18,8 +15,8 @@ def RecursiveDomination(G: nx.Graph, ddset: set, current_vertex_index: int) -> s
             break
     
     current_vertex_index += 1
-    solution1 = RecursiveDomination(G, tempset, current_vertex_index) if is_valid_ddset else ddset
-    solution2 = RecursiveDomination(G, ddset, current_vertex_index)
+    solution1 = gammax2set(G, tempset, current_vertex_index) if is_valid_ddset and current_vertex_index < len(G.nodes()) else (tempset if is_valid_ddset else ddset)
+    solution2 = gammax2set(G, ddset, current_vertex_index) if current_vertex_index < len(G.nodes()) else ddset
 
     if len(solution1) <= len(solution2):
         return solution1
